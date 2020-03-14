@@ -6,54 +6,67 @@ import java.util.Set;
 
 // Represents a bus having an id, capacity, chaperone and set of students assigned to travel on bus
 public class Bus {
+
+    private int id;
+    private int capacity;
+    private Chaperone chaperone;
+    protected HashSet<Student> students;
+
     // EFFECTS: constructs bus with id and capacity
     public Bus(int id, int capacity) {
-        // stub
+        students = new HashSet<>();
+        this.id = id;
+        this.capacity = capacity;
     }
 
     public int getId() {
-        return 0;   // stub
+        return id;
     }
 
     public int getCapacity() {
-        return 0;   // stub
+        return capacity;   // stub
     }
 
     public Chaperone getChaperone() {
-        return null;   // stub
+        return chaperone;   // stub
     }
 
     // EFFECTS: returns true if bus has a chaperone assigned, false otherwise
     public boolean hasChaperone() {
-        return false;   // stub
+        return chaperone != null;
     }
 
     // EFFECTS: returns an unmodifiable set of students assigned to travel on this bus
     public Set<Student> getStudents() {
-        return null;   // stub
+        return students;   // stub
     }
 
     // MODIFIES: this
     // EFFECTS: assigns the chaperone for this bus
     public void setChaperone(Chaperone chaperone) {
-        // stub
+        this.chaperone = chaperone;
     }
 
     // EFFECTS: returns true if bus is full, false otherwise
     public boolean isFull() {
-        return false;    // stub
+        return students.size() >= capacity;
+
     }
 
     // REQUIRES: !isFull()
     // MODIFIES: this, student
     // EFFECTS: adds student to this bus
     public void addStudent(Student student) {
-        // stub
+        if (!students.contains(student)) {
+            students.add(student);
+        }
     }
 
     // MODIFIES: this, student
     // EFFECTS: removes student from this bus
     public void removeStudent(Student student) {
-        // stub
+        if (!students.contains(student)) {
+            students.remove(student);
+        }
     }
 }

@@ -41,15 +41,15 @@ public class Student {
     // MODIFIES: this, bus
     // EFFECTS: assigns student to travel on bus
     public void assignToBus(Bus bus) {
-        if (!bus.students.contains(this)) {
-            bus.addStudent(this);
-        }
+        this.bus = bus;
     }
 
     // MODIFIES: this, Bus b = getAssignedBus()
     // EFFECTS: if student is assigned to a bus, removes student from assigned bus;
     // otherwise has no effect
     public void removeFromBus() {
-        bus.removeStudent(this);
+        if (isAssignedToBus()) {
+            bus.students.remove(this);
+        }
     }
 }

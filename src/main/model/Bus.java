@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
@@ -38,7 +39,10 @@ public class Bus {
 
     // EFFECTS: returns an unmodifiable set of students assigned to travel on this bus
     public Set<Student> getStudents() {
-        return students;   // stub
+        Set<Student> unmodifiableStudent;
+
+        unmodifiableStudent = Collections.unmodifiableSet(students);
+        return unmodifiableStudent;
     }
 
     // MODIFIES: this
@@ -50,16 +54,15 @@ public class Bus {
     // EFFECTS: returns true if bus is full, false otherwise
     public boolean isFull() {
         return students.size() >= capacity;
-
     }
 
     // REQUIRES: !isFull()
     // MODIFIES: this, student
     // EFFECTS: adds student to this bus
     public void addStudent(Student student) {
-
-        if () {
+        if (!students.contains(student)) {
             students.add(student);
+            student.assignToBus(this);
         }
     }
 

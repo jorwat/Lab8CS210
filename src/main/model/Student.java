@@ -41,7 +41,10 @@ public class Student {
     // MODIFIES: this, bus
     // EFFECTS: assigns student to travel on bus
     public void assignToBus(Bus bus) {
-        this.bus = bus;
+        if (getAssignedBus() != bus) {
+            this.bus = bus;
+            bus.addStudent(this);
+        }
     }
 
     // MODIFIES: this, Bus b = getAssignedBus()

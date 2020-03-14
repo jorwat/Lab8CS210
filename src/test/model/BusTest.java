@@ -32,6 +32,12 @@ class BusTest {
         assertEquals(659,s1.getId());
         assertEquals(5483,s2.getId());
         assertEquals(54837,s3.getId());
+        assertEquals(8,s1.getGrade());
+        assertEquals(9,s2.getGrade());
+        assertEquals(9,s3.getGrade());
+        assertEquals("Jordan",s1.getName());
+        assertEquals("Emilie", s2.getName());
+        assertEquals("Eric",s3.getName());
     }
 
     @Test
@@ -44,10 +50,19 @@ class BusTest {
     }
 
     @Test
-    void testAddStudents() {
-
+    void testAddAndRemoveStudents() {
+        b1.addStudent(s1);
+        b2.addStudent(s2);
+        b2.addStudent(s3);
+        assertTrue(b1.getStudents().contains(s1));
+        assertTrue(b2.getStudents().contains(s2));
+        assertTrue(b2.getStudents().contains(s3));
+        assertTrue(b2.isFull());
+        b1.removeStudent(s1);
+        b2.removeStudent(s2);
+        assertFalse(b1.getStudents().contains(s1));
+        assertFalse(b2.getStudents().contains(s2));
+        assertTrue(b2.getStudents().contains(s3));
     }
-
-
 }
 

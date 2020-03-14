@@ -34,7 +34,11 @@ public class Student {
 
     // EFFECTS: returns true if student is assigned to a bus, false otherwise
     public boolean isAssignedToBus() {
-        return bus.getStudents().contains(this);
+        if (bus == null) {
+            return false;
+        } else {
+            return bus.getStudents().contains(this);
+        }
     }
 
     // REQUIRES: !bus.isFull()
@@ -52,7 +56,9 @@ public class Student {
     // otherwise has no effect
     public void removeFromBus() {
         if (isAssignedToBus()) {
-            bus.students.remove(this);
+            bus.removeStudent(this);
+            this.bus = null;
+
         }
     }
 }

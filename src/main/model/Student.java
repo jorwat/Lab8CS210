@@ -45,7 +45,7 @@ public class Student {
     // MODIFIES: this, bus
     // EFFECTS: assigns student to travel on bus
     public void assignToBus(Bus bus) {
-        if (bus != getAssignedBus()) {
+        if (getAssignedBus() != bus) {
             this.bus = bus;
             bus.addStudent(this);
         }
@@ -55,7 +55,7 @@ public class Student {
     // EFFECTS: if student is assigned to a bus, removes student from assigned bus;
     // otherwise has no effect
     public void removeFromBus() {
-        if (!isAssignedToBus()) {
+        if (isAssignedToBus()) {
             bus.removeStudent(this);
             bus = null;
         }

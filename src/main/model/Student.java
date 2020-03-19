@@ -55,8 +55,9 @@ public class Student {
     // EFFECTS: if student is assigned to a bus, removes student from assigned bus;
     // otherwise has no effect
     public void removeFromBus() {
-        if (isAssignedToBus()) {
+        if (!isAssignedToBus()) {
             bus.removeStudent(this);
+            bus = null;
         }
     }
 }

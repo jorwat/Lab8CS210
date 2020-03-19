@@ -66,7 +66,7 @@ class StudentTest {
         assertEquals(b2,s2.getAssignedBus());
         s1.assignToBus(b2);
         assertEquals(b2,s1.getAssignedBus());
-        assertFalse(b1.students.contains(s1));
+        assertNull(b1);
     }
 
 }

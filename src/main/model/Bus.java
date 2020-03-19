@@ -70,8 +70,8 @@ public class Bus {
     // EFFECTS: removes student from this bus
     public void removeStudent(Student student) {
         if (student.isAssignedToBus()) {
-            student.removeFromBus();
             students.remove(student);
+            student.removeFromBus();
         }
     }
 }

@@ -60,7 +60,8 @@ public class Bus {
     // MODIFIES: this, student
     // EFFECTS: adds student to this bus
     public void addStudent(Student student) {
-        if (!students.contains(student)) {
+
+        if (!getStudents().contains(student)) {
             students.add(student);
             student.assignToBus(this);
         }

@@ -51,7 +51,6 @@ class StudentTest {
         assertTrue(s2.isAssignedToBus());
         assertFalse(s3.isAssignedToBus());
         s1.assignToBus(b2);
-
         s1.removeFromBus();
         assertFalse(s1.isAssignedToBus());
         assertTrue(s2.isAssignedToBus());

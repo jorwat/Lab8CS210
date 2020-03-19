@@ -47,6 +47,7 @@ class BusTest {
         assertTrue(b1.hasChaperone());
         assertFalse(b2.hasChaperone());
         assertNull(b2.getChaperone());
+        assertEquals("Mrs. Martin", c1.getName());
     }
 
     @Test

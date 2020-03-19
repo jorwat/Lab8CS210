@@ -53,5 +53,18 @@ class StudentTest {
         s1.removeFromBus();
         assertFalse(s1.isAssignedToBus());
         assertTrue(s2.isAssignedToBus());
+        assertNull(s1.getAssignedBus());
     }
+
+    @Test
+    void TrickyCase() {
+        s1.assignToBus(b1);
+        s2.assignToBus(b2);
+        assertEquals(b1,s1.getAssignedBus());
+        assertEquals(b2,s2.getAssignedBus());
+        s1.assignToBus(b2);
+        assertEquals(b2,s1.getAssignedBus());
+        assertFalse(b1.students.contains(s1));
+    }
+
 }

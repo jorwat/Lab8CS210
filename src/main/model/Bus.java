@@ -69,9 +69,9 @@ public class Bus {
     // MODIFIES: this, student
     // EFFECTS: removes student from this bus
     public void removeStudent(Student student) {
-        if (students.contains(student)) {
-            students.remove(student);
+        if (!students.contains(student)) {
             student.removeFromBus();
+            students.remove(student);
         }
     }
 }

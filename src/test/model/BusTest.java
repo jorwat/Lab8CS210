@@ -58,6 +58,7 @@ class BusTest {
         assertTrue(b2.getStudents().contains(s2));
         assertTrue(b2.getStudents().contains(s3));
         assertTrue(b2.isFull());
+        assertTrue(s1.isAssignedToBus());
         b1.removeStudent(s1);
         b2.removeStudent(s2);
         assertFalse(b1.getStudents().contains(s1));
